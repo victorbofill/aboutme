@@ -1,6 +1,8 @@
 # The files and folders listed here will NOT be tracked by git
 guide/
 
+.vscode
+
 # Mac Droppings
 */.DS_Store
 
