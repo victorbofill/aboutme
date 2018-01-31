@@ -1,0 +1,25 @@
+body {
+    background-color: blue;
+    font-family: monospace;
+}
+
+p {
+    font-size: 20pt;
+    background-color: yellow;
+    color: red;
+    border-style: solid;
+    border-width: 5px;
+    border-color: purple;
+}
+
+p:hover {
+    color: yellow;
+    background-color: red;
+    border-style: dotted;
+}
+
+span.question {
+    color: green;
+    font-size: 25pt;
+    font-weight: 600;
+}

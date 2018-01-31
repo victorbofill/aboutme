@@ -24,54 +24,56 @@
 // + ', I will visit ' + userFaveRestaurant + ' and order the ' + userFaveFood + '!');
 // first question about me
 
-const answerSiblings = prompt('Now you will learn a little bit about me! First off, is it true that I have three siblings?');
+const answerSiblings = prompt('Now you will learn a little bit about me! First off, \
+is it true that I have three siblings?');
 
 console.log('Does the user think I have three siblings? ' + answerSiblings);
 
-let msgSiblings = undefined;
+let msgSiblings = '';
 
 if (answerSiblings.toLowerCase() === 'y' || answerSiblings.toLowerCase() === 'yes'){
-msgSiblings = 'Not quite! ';
+    msgSiblings = 'Not quite! ';
 } else if (answerSiblings.toLowerCase() === 'n' || answerSiblings.toLowerCase() === 'no') {
-msgSiblings = 'You are correct! ';
+    msgSiblings = 'You are correct! ';
 } else {
-    msgSiblings = 'Oops, I didn\'t understand you. But in case you\'re curious, ';
+    msgSiblings = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
     console.log('User entered invalid siblings response.');
 }
 
-alert(msgSiblings + "I actually have four siblings!");
+alert(msgSiblings + 'I actually have four siblings!');
 
 // second question about me
 const answerIceCream = prompt('How about ice cream? Do you think I like ice cream?');
 
 console.log('Does the user think I like ice cream? ' + answerIceCream);
 
-let msgIceCream = undefined;
+let msgIceCream = '';
 
 if (answerIceCream.toLowerCase() === 'y' || answerIceCream.toLowerCase() === 'yes'){
-msgIceCream = 'Heh, you\'re not quite right... Actually, ';
+    msgIceCream = 'Heh, you\'re not quite right... Actually, ';
 } else if (answerIceCream.toLowerCase() === 'n' || answerIceCream.toLowerCase() === 'no') {
-msgIceCream = 'Heh, you\'re right. I don\'t like ice cream. ';
+    msgIceCream = 'Heh, you\'re right. I don\'t like ice cream. ';
 } else {
-    msgIceCream = 'Oops, I didn\'t understand you. But in case you\'re curious, ';
+    msgIceCream = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
     console.log('User entered invalid ice cream response.');
 }
 
-alert(msgIceCream + "I looooooove ice cream!");
+alert(msgIceCream + 'I looooooove ice cream!');
 
 // third question about me
-const answerParty = prompt('Ok, that last question was a bit of a trick. No more tricks this time! What do you think? Do I looove to party?');
+const answerParty = prompt('Ok, that last question was a bit of a trick. No more tricks this time! \
+What do you think? Do I looove to party?');
 
 console.log('Does the user think I love to party? ' + answerParty);
 
-let msgParty = undefined;
+let msgParty = '';
 
 if (answerParty.toLowerCase() === 'y' || answerParty.toLowerCase() === 'yes'){
-msgParty = 'I actually don\'t like to party. ';
+    msgParty = 'I actually don\'t like to party. ';
 } else if (answerParty.toLowerCase() === 'n' || answerParty.toLowerCase() === 'no') {
-msgParty = 'Yeah, you\'re right about that. ';
+    msgParty = 'Yeah, you\'re right about that. ';
 } else {
-    msgParty = 'Oops, I didn\'t understand you. But in case you\'re curious, ';
+    msgParty = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
     console.log('User entered invalid party response.');
 }
 
@@ -82,14 +84,14 @@ const answerTravel = prompt('What do you think? Have I ever traveled outside of 
 
 console.log('Does the user think I have traveled outside of the US? ' + answerTravel);
 
-let msgTravel = undefined;
+let msgTravel = '';
 
 if (answerTravel.toLowerCase() === 'y' || answerTravel.toLowerCase() === 'yes'){
-msgTravel = 'That\'s right! But ust once. ';
+    msgTravel = 'That\'s right! But ust once. ';
 } else if (answerTravel.toLowerCase() === 'n' || answerTravel.toLowerCase() === 'no') {
-msgTravel = 'Nope! I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ';
+    msgTravel = 'Nope! I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ';
 } else {
-    msgTravel = 'Oops, I didn\'t understand you. But in case you\'re curious, ';
+    msgTravel = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
     console.log('User entered invalid travel response.');
 }
 
@@ -100,14 +102,14 @@ const answerCoding = prompt('OK, final question! Do I love to code?');
 
 console.log('Does the user think I like to code? ' + answerCoding);
 
-let msgCoding = undefined;
+let msgCoding = '';
 
 if (answerCoding.toLowerCase() === 'y' || answerCoding.toLowerCase() === 'yes'){
-msgCoding = 'Of course I do! ';
+    msgCoding = 'Of course I do! ';
 } else if (answerCoding.toLowerCase() === 'n' || answerCoding.toLowerCase() === 'no') {
-msgCoding = 'Oh come on, you know better than that! ';
+    msgCoding = 'Oh come on, you know better than that! ';
 } else {
-    msgCoding = 'Oops, I didn\'t understand you. But in case you\'re curious, ';
+    msgCoding = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
     console.log('User entered invalid coding response.');
 }
 
