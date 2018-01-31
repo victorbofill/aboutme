@@ -1,29 +1,6 @@
 'use strict';
 
-// JANUARY 29 QUESTIONS
-// // first question about user
-// let userName = prompt('What is your name?');
-// console.log('Users name is ' + userName);*
-// alert(userName + ", huh? What a sweet name!");
-
-// // second question about user
-// let userHometown = prompt('What city do you live in?');
-// console.log('User lives in ' + userHometown);
-// alert('Cool, ' + userName + '! I have actually never been to ' + userHometown
-//       + ' myself, but I have heard that it is great!');
-
-// // third question about user
-// let userFaveRestaurant = prompt('What is your favorite restaurant there?');
-// console.log('Users favorite restaurant in ' + userHometown + ' is ' + userFaveRestaurant);
-// alert('Hey, a friend of mine from ' + userHometown + ' loves ' + userFaveRestaurant + '!');
-
-// // fourth question about user
-// let userFaveFood = prompt('What is your favorite thing on their menu?');
-// console.log('Users favorite item at ' + userFaveRestaurant + ' is ' + userFaveFood);
-// alert('Man, ' + userFaveFood + ' sure does sound amazing... If I ever visit ' + userHometown
-// + ', I will visit ' + userFaveRestaurant + ' and order the ' + userFaveFood + '!');
 // first question about me
-
 const answerSiblings = prompt('Now you will learn a little bit about me! First off, \
 is it true that I have three siblings?');
 
@@ -50,7 +27,7 @@ console.log('Does the user think I like ice cream? ' + answerIceCream);
 let msgIceCream = '';
 
 if (answerIceCream.toLowerCase() === 'y' || answerIceCream.toLowerCase() === 'yes'){
-    msgIceCream = 'Heh, you\'re not quite right... Actually, ';
+    msgIceCream = 'Heh, you\'re on the right track, but you\'re not quite right... Actually, ';
 } else if (answerIceCream.toLowerCase() === 'n' || answerIceCream.toLowerCase() === 'no') {
     msgIceCream = 'Heh, you\'re right. I don\'t like ice cream. ';
 } else {
@@ -87,9 +64,9 @@ console.log('Does the user think I have traveled outside of the US? ' + answerTr
 let msgTravel = '';
 
 if (answerTravel.toLowerCase() === 'y' || answerTravel.toLowerCase() === 'yes'){
-    msgTravel = 'That\'s right! But ust once. ';
+    msgTravel = 'That\'s right! But just once. ';
 } else if (answerTravel.toLowerCase() === 'n' || answerTravel.toLowerCase() === 'no') {
-    msgTravel = 'Nope! I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ';
+    msgTravel = 'Actually, I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ';
 } else {
     msgTravel = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
     console.log('User entered invalid travel response.');
