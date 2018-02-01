@@ -22,32 +22,34 @@ console.log('Users favorite item at ' + userFaveRestaurant + ' is ' + userFaveFo
 alert('Man, ' + userFaveFood + ' sure does sound amazing... If I ever visit ' + userHometown
 + ', I will visit ' + userFaveRestaurant + ' and order the ' + userFaveFood + '!');
 
-// first question about me: siblings
+// about me questions
 let userScore = 0;
 
-const questions = ['Now you will learn a little bit about me! First off, \
-    is it true that I have three siblings?',
-'How about ice cream? Do you think I like ice cream?',
-'Ok, that last question was a bit of a trick. No more tricks this time! \
-        What do you think? Do I looove to party?',
-'What do you think? Have I ever traveled outside of the United States?'
-]; 
-const comparison = ['yes', 'y', 'no', 'n'];
+const questions = ['Now you will learn a little bit about me! First off, is it true that I have three siblings?',
+    'How about ice cream? Do you think I like ice cream?',
+    'Ok, that last question was a bit of a trick. No more tricks this time! What do you think? Do I looove to party?',
+    'What do you think? Have I ever traveled outside of the United States?',
+    'Last question! Do I love to code?'
+];
 
-const affirm = ['Not quite! ',
+const correctOne = ['n', 'y', 'n', 'y', 'y'];
+const correctTwo = ['no', 'yes', 'no', 'yes', 'yes'];
+const incorrectOne = ['yes', 'no', 'yes', 'no', 'no'];
+const incorrectTwo = ['y', 'n', 'y', 'n', 'n'];
+
+const affirm = ['You are correct! ',
     'Heh, you\'re on the right track, but you\'re not quite right... Actually, ',
-    'I actually don\'t like to party. ',
+    'Yeah, you\'re right about that. ',
     'That\'s right! But just once. ',
     'Of course I do! '
 ];
 
-const neggy = ['You are correct! ',
+const neggy = ['Not quite! ',
     'Heh, you\'re right. I don\'t like ice cream. ',
-    'Yeah, you\'re right about that. ',
+    'I actually don\'t like to party. ',
     'Actually, I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ',
     'Oh come on, you know better than that! ',
 ];
-
 
 const message = ['I actually have four siblings!',
     'I looooooove ice cream!',
@@ -58,24 +60,23 @@ const message = ['I actually have four siblings!',
 
 function aboutMe() {
     for ( let x = 0 ; x < 5 ; x++ ){
+        let msg;
 
-        const answer = prompt( questions[x]).toLowerCase();
-        
-        let msg = '';
-        
-        if (answer === comparison[0] || answer === comparison[1]){
+        const answer = prompt(questions[x]).toLowerCase();
+
+        if (answer === correctOne[x] || answer === correctTwo[x]){
             msg = affirm[x];
-        } else if (answer === comparison[2] || answer === comparison[3]) {
-            msg = neggy[x];
             userScore++;
+        } else if (answer === incorrectOne[x] || answer === incorrectTwo[x]) {
+            msg = neggy[x];
         } else {
             msg = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
             console.log('User entered invalid  response.');
-        }
+        } 
 
         alert(msg + message[x]);
-
-    }  
+        console.log('User\'s score is: ' + userScore);
+    }
 }
 
 aboutMe();
