@@ -2,26 +2,24 @@
 let userScore = 0; // can be removed when merged
 
 const userName = prompt('Hi there! Will you please tell me your name?'); // can be removed when merged
+let userGuess;
+let userGuessCounter = 3;
+let nullCounter = 4; // allows users to escape out of prompts
 
 alert('Alright, ' + userName + ', now we\'re going to play a little game! You try to guess a number, and I will \
 tell you how close to the actual number you are. Now, you only have four guesses to get this right, so be careful! \
 Are you ready?');
 
-let userGuess = 'no guess';
-let userGuessCounter = 3;
-let nullCounter = 4; // allows users to escape out of prompts
+userGuess = prompt('Once while playing a video game with my friends, I collected a whole bunch of powerful coins. \
+Unfortunately I abandoned my friends and was killed by the enemy team, which sacrificed all of my coins to the \
+opposition. How many coins do you think I lost to the enemy team?');
 
 while (userGuess != 17 && userGuessCounter != 0 && nullCounter != 0) {
-    if(userGuess === 'no guess') {
-        userGuess = prompt('Once while playing a video game with my friends, I collected a whole bunch of powerful coins. \
-        Unfortunately I abandoned my friends and was killed by the enemy team, which sacrificed all of my coins to the \
-        opposition. How many coins do you think I lost to the enemy team?');
-
-        console.log('userGuess is : ' + userGuess);
-    } else if (userGuess === null || userGuess === '') {
+    if (userGuess === null || userGuess === '') {
         userGuess = prompt ('Whoops, you didn\'t make a guess! Try again.');
         console.log('User entered invalid response: ' + userGuess);
         nullCounter--;
+        console.log(nullCounter);
     } else if (userGuess === '18') {
         userGuess = prompt('You\'re so close, but just a little too high! I bet you can get it with one more guess...');
         userGuessCounter--;
@@ -60,30 +58,38 @@ They will never let me live it down.');
 const petArray = ['spooky', 'dot', 'rex', 'dirk', 'patches', 'gumbo', 'spot', 'cloudbear'];
 
 userGuessCounter = 6;
-userGuess = 'no guess';
 let userCorrect = false;
-let petMessage = '';
-
-userGuess = prompt('OK, ' + userName + ' one last game! Do you think you can guess the name ofone of the pets I had growing up? \
+nullCounter = 6;
+let petMessage = 'OK,' + userName + ', one last game! Do you think you can guess the name ofone of the pets I had growing up? \
 You have six tries to get one right answer! Your choices are: Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and \
-Cloudbear. Ready,go!').toLowerCase();
+Cloudbear. Ready,go!';
 
-console.log('User\'s response was: ' + userGuess);
+console.log('User\'s pet guess was: ' + userGuess);
 
-while (userGuessCounter != 0) {
+while (userGuessCounter != 0 && nullCounter != 0) {
+    userGuess = prompt(petMessage);
+
     if (userGuess === petArray[1] || userGuess === petArray[4] || userGuess === petArray[6] ||
     userGuess === petArray[7]) {
-        userGuess = prompt('No, that\'s not one of them. Why not give it another shot? Again, your choices are: \
+        userGuess = prompt(petMessage + 'Again, your choices are: \
         Spooky, Dot, Rex, Dirk,Patches, Gumbo, Spot, and Cloudbear!').toLowerCase();
 
         userGuessCounter--;
 
         console.log('User\'s incorrect response was: ' + userGuess);
 
-    } else {
+    } else if (userGuess === petArray[0] || userGuess === petArray [2] || userGuess === petArray [3] || userGuess === petArray [5]) {
         userCorrect = true;
         userScore++;
         userGuessCounter = 0;
+
+        console.log('User\'s correct response was: ' + userGuess);
+
+        break;
+
+    } else {
+        petMessage = 'Whoops, you didn\'t enter a valid guess! ';
+        nullCounter--;
     }
 }
 
