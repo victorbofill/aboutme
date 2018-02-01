@@ -25,134 +25,60 @@ alert('Man, ' + userFaveFood + ' sure does sound amazing... If I ever visit ' + 
 // first question about me: siblings
 let userScore = 0;
 
+const questions = ['Now you will learn a little bit about me! First off, \
+    is it true that I have three siblings?',
+'How about ice cream? Do you think I like ice cream?',
+'Ok, that last question was a bit of a trick. No more tricks this time! \
+        What do you think? Do I looove to party?',
+'What do you think? Have I ever traveled outside of the United States?'
+]; 
+const comparison = ['yes', 'y', 'no', 'n'];
 
-function siblings() {
+const affirm = ['Not quite! ',
+    'Heh, you\'re on the right track, but you\'re not quite right... Actually, ',
+    'I actually don\'t like to party. ',
+    'That\'s right! But just once. ',
+    'Of course I do! '
+];
 
-    const answerSiblings = prompt('Now you will learn a little bit about me! First off, \
-    is it true that I have three siblings?').toLowerCase();
-    
-    console.log('Does the user think I have three siblings? ' + answerSiblings);
-    
-    let msgSiblings = '';
-    
-    if (answerSiblings === 'y' || answerSiblings === 'yes'){
-        msgSiblings = 'Not quite! ';
-    } else if (answerSiblings === 'n' || answerSiblings === 'no') {
-        msgSiblings = 'You are correct! ';
-        userScore++;
-    } else {
-        msgSiblings = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
-        console.log('User entered invalid siblings response.');
-    }
-    
-    alert(msgSiblings + 'I actually have four siblings!');
-    
+const neggy = ['You are correct! ',
+    'Heh, you\'re right. I don\'t like ice cream. ',
+    'Yeah, you\'re right about that. ',
+    'Actually, I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ',
+    'Oh come on, you know better than that! ',
+];
+
+
+const message = ['I actually have four siblings!',
+    'I looooooove ice cream!',
+    'My party years are behind me at this point.',
+    'I took a trip to Oman several years ago.',
+    'Coding is wonderful!'
+];
+
+function aboutMe() {
+    for ( let x = 0 ; x < 5 ; x++ ){
+
+        const answer = prompt( questions[x]).toLowerCase();
+        
+        let msg = '';
+        
+        if (answer === comparison[0] || answer === comparison[1]){
+            msg = affirm[x];
+        } else if (answer === comparison[2] || answer === comparison[3]) {
+            msg = neggy[x];
+            userScore++;
+        } else {
+            msg = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
+            console.log('User entered invalid  response.');
+        }
+
+        alert(msg + message[x]);
+
+    }  
 }
 
-siblings();
-
-// second question about me: ice cream
-console.log('User\'s score is: ' + userScore);
-
-function iceCream() {
-
-    const answerIceCream = prompt('How about ice cream? Do you think I like ice cream?').toLowerCase();
-    
-    console.log('Does the user think I like ice cream? ' + answerIceCream);
-    
-    let msgIceCream = '';
-    
-    if (answerIceCream === 'y' || answerIceCream === 'yes'){
-        msgIceCream = 'Heh, you\'re on the right track, but you\'re not quite right... Actually, ';
-        userScore++;
-    } else if (answerIceCream === 'n' || answerIceCream === 'no') {
-        msgIceCream = 'Heh, you\'re right. I don\'t like ice cream. ';
-    } else {
-        msgIceCream = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
-        console.log('User entered invalid ice cream response.');
-    }
-    
-    alert(msgIceCream + 'I looooooove ice cream!');
-
-}
-
-iceCream();
-
-// third question about me: party
-console.log('User\'s score is: ' + userScore);
-
-function party() {
-    const answerParty = prompt('Ok, that last question was a bit of a trick. No more tricks this time! \
-    What do you think? Do I looove to party?').toLowerCase();
-
-    console.log('Does the user think I love to party? ' + answerParty);
-
-    let msgParty = '';
-
-    if (answerParty === 'y' || answerParty === 'yes'){
-        msgParty = 'I actually don\'t like to party. ';
-    } else if (answerParty === 'n' || answerParty === 'no') {
-        msgParty = 'Yeah, you\'re right about that. ';
-        userScore++;
-    } else {
-        msgParty = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
-        console.log('User entered invalid party response.');
-    }
-    alert(msgParty + 'My party years are behind me at this point.');
-}
-party();
-
-
-// fourth question about me: travel
-console.log('User\'s score is: ' + userScore);
-
-function travel() {
-
-    const answerTravel = prompt('What do you think? Have I ever traveled outside of the United States?').toLowerCase();
-    
-    console.log('Does the user think I have traveled outside of the US? ' + answerTravel);
-    
-    let msgTravel = '';
-    
-    if (answerTravel === 'y' || answerTravel === 'yes'){
-        msgTravel = 'That\'s right! But just once. ';
-        userScore++;
-    } else if (answerTravel === 'n' || answerTravel === 'no') {
-        msgTravel = 'Actually, I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ';
-    } else {
-        msgTravel = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
-        console.log('User entered invalid travel response.');
-    }
-    
-    alert(msgTravel + 'I took a trip to Oman several years ago.');
-}
-travel();
-
-
-// fifth question about me: coding
-console.log('User\'s score is: ' + userScore);
-
-function coding(){
-    const answerCoding = prompt('OK, final question! Do I love to code?').toLowerCase();
-    
-    console.log('Does the user think I like to code? ' + answerCoding);
-    
-    let msgCoding = '';
-    
-    if (answerCoding === 'y' || answerCoding === 'yes'){
-        msgCoding = 'Of course I do! ';
-        userScore++;
-    } else if (answerCoding === 'n' || answerCoding === 'no') {
-        msgCoding = 'Oh come on, you know better than that! ';
-    } else {
-        msgCoding = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
-        console.log('User entered invalid coding response.');
-    }
-    
-    alert(msgCoding + 'Coding is wonderful!');
-}
-
-coding();
+aboutMe();
 
 // guessing game: coins
 let userGuess;
