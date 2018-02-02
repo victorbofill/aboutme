@@ -1,57 +1,59 @@
 'use strict';
 
-// first question about user: name
-const userName = prompt('What is your name?');
-console.log('Users name is ' + userName);
-alert(userName + ', huh? What a sweet name!');
-
-// second question about user: city
-const userHometown = prompt('What city do you live in?');
-console.log('User lives in ' + userHometown);
-alert('Cool, ' + userName + '! I have actually never been to ' + userHometown
-      + ' myself, but I have heard that it is great!');
-
-// third question about user: restaurant
-const userFaveRestaurant = prompt('What is your favorite restaurant there?');
-console.log('Users favorite restaurant in ' + userHometown + ' is ' + userFaveRestaurant);
-alert('Hey, a friend of mine from ' + userHometown + ' loves ' + userFaveRestaurant + '!');
-
-// fourth question about user: food
-const userFaveFood = prompt('What is your favorite thing on their menu?');
-console.log('Users favorite item at ' + userFaveRestaurant + ' is ' + userFaveFood);
-alert('Man, ' + userFaveFood + ' sure does sound amazing... If I ever visit ' + userHometown
-+ ', I will visit ' + userFaveRestaurant + ' and order the ' + userFaveFood + '!');
-
-// about me questions
 let userScore = 0;
+let userName = '';
 
-const questions = ['Now you will learn a little bit about me! First off, is it true that I have three siblings?',
+// about the user
+
+function userQuestions() {
+    userName = prompt('What is your name?');
+    console.log('Users name is ' + userName);
+    alert(userName + ', huh? What a sweet name!');
+
+    const userHometown = prompt('What city do you live in?');
+    console.log('User lives in ' + userHometown);
+    alert('Cool, ' + userName + '! I have actually never been to ' + userHometown
+          + ' myself, but I have heard that it is great!');
+
+    const userFaveRestaurant = prompt('What is your favorite restaurant there?');
+    console.log('Users favorite restaurant in ' + userHometown + ' is ' + userFaveRestaurant);
+    alert('Hey, a friend of mine from ' + userHometown + ' loves ' + userFaveRestaurant + '!');
+
+    const userFaveFood = prompt('What is your favorite thing on their menu?');
+    console.log('Users favorite item at ' + userFaveRestaurant + ' is ' + userFaveFood);
+    alert('Man, ' + userFaveFood + ' sure does sound amazing... If I ever visit ' + userHometown
+    + ', I will visit ' + userFaveRestaurant + ' and order the ' + userFaveFood + '!');
+}
+
+// about me
+
+const aboutMeQuestions = ['Now you will learn a little bit about me! First off, is it true that I have three siblings?',
     'How about ice cream? Do you think I like ice cream?',
     'Ok, that last question was a bit of a trick. No more tricks this time! What do you think? Do I looove to party?',
     'What do you think? Have I ever traveled outside of the United States?',
     'Last question! Do I love to code?'
 ];
 
-const correctOne = ['n', 'y', 'n', 'y', 'y'];
-const correctTwo = ['no', 'yes', 'no', 'yes', 'yes'];
-const incorrectOne = ['yes', 'no', 'yes', 'no', 'no'];
-const incorrectTwo = ['y', 'n', 'y', 'n', 'n'];
+const aboutMecorrectOne = ['n', 'y', 'n', 'y', 'y'];
+const aboutMeCorrectTwo = ['no', 'yes', 'no', 'yes', 'yes'];
+const aboutMeIncorrectOne = ['yes', 'no', 'yes', 'no', 'no'];
+const aboutMeIncorrectTwo = ['y', 'n', 'y', 'n', 'n'];
 
-const affirm = ['You are correct! ',
+const aboutMeAffirm = ['You are correct! ',
     'Heh, you\'re on the right track, but you\'re not quite right... Actually, ',
     'Yeah, you\'re right about that. ',
     'That\'s right! But just once. ',
     'Of course I do! '
 ];
 
-const neggy = ['Not quite! ',
+const aboutMeNeggy = ['Not quite! ',
     'Heh, you\'re right. I don\'t like ice cream. ',
     'I actually don\'t like to party. ',
     'Actually, I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ',
     'Oh come on, you know better than that! ',
 ];
 
-const message = ['I actually have four siblings!',
+const aboutMeMessage = ['I actually have four siblings!',
     'I looooooove ice cream!',
     'My party years are behind me at this point.',
     'I took a trip to Oman several years ago.',
@@ -62,36 +64,31 @@ function aboutMe() {
     for ( let x = 0 ; x < 5 ; x++ ){
         let msg;
 
-        const answer = prompt(questions[x]).toLowerCase();
+        const answer = prompt(aboutMeQuestions[x]).toLowerCase();
 
-        if (answer === correctOne[x] || answer === correctTwo[x]){
-            msg = affirm[x];
+        if (answer === aboutMecorrectOne[x] || answer === aboutMeCorrectTwo[x]){
+            msg = aboutMeAffirm[x];
             userScore++;
-        } else if (answer === incorrectOne[x] || answer === incorrectTwo[x]) {
-            msg = neggy[x];
+        } else if (answer === aboutMeIncorrectOne[x] || answer === aboutMeIncorrectTwo[x]) {
+            msg = aboutMeNeggy[x];
         } else {
             msg = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
-            console.log('User entered invalid  response.');
         }
 
-        alert(msg + message[x]);
+        alert(msg + aboutMeMessage[x]);
         console.log('User\'s score is: ' + userScore);
     }
 }
-
-aboutMe();
 
 // random number game
 let userGuess;
 let userGuessCounter = 3;
 let nullCounter = 4; // allows users to escape out of prompts
-const hiddenNumber = Math.floor(Math.random() * 100);
-
-console.log('The hidden number is: ' + hiddenNumber);
-
-console.log(hiddenNumber + 1);
 
 function randomNumberGame() {
+    const hiddenNumber = Math.floor(Math.random() * 100);
+    console.log('The hidden number is: ' + hiddenNumber);
+
     userGuess = prompt('Alright, ' + userName + ', now we\'re going to play a little game! I\'m going to pick a random \
     number between 1 and 100, and you try to guess the number. There\'s a catch, though: you only have four guesses! What\'s your first guess?');
 
@@ -124,17 +121,19 @@ function randomNumberGame() {
 
             userGuess = prompt('You\'re within 10! Just a little higher!');
             userGuessCounter--;
-            console.log('userGuess is : ' + userGuess);
 
         } else if (parseInt(userGuess) >= (hiddenNumber + 10)) {
-            userGuess = prompt('Too high! Bring it down a bit.')
+            userGuess = prompt('Too high! Bring it down a bit.');
             userGuessCounter--;
 
         } else if (parseInt(userGuess) <= (hiddenNumber - 10)) {
-            userGuess = prompt('Too low! Bring it up.')
+            userGuess = prompt('Too low! Bring it up.');
             userGuessCounter--;
 
         }
+
+        console.log('userGuess is : ' + userGuess);
+
     }
 
     if (parseInt(userGuess) === hiddenNumber) {
@@ -142,17 +141,15 @@ function randomNumberGame() {
         console.log('User\s score is: ' + userScore);
         alert('You got it!!');
     }
-    
+
     if (userGuess != hiddenNumber ) {
         alert('You didn\'t quite find the right number. Do you want to know what it was? It was ' + hiddenNumber);
     }
 }
 
-randomNumberGame();
-
 // guess the pet
 
-function pets() {
+function petGame() {
 
     const petArray = ['spooky', 'dot', 'rex', 'dirk', 'patches', 'gumbo', 'spot', 'cloudbear'];
     let userCorrect;
@@ -163,32 +160,30 @@ function pets() {
     You have six tries to get one right answer! Your choices are: Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and \
     Cloudbear. Ready,go!';
 
+    userGuess = prompt(petMessage).toLowerCase();
+
     console.log('User\'s pet guess was: ' + userGuess);
 
     while (userGuessCounter != 0 && nullCounter != 0) {
-        userGuess = prompt(petMessage).toLowerCase();
-
         if (userGuess === petArray[1] || userGuess === petArray[4] || userGuess === petArray[6] || userGuess === petArray[7]) {
             userGuess = prompt('No, that\'s not one of them. How about another try? Your choices are: \
             Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and Cloudbear!').toLowerCase();
 
             userGuessCounter--;
 
-            console.log('User\'s incorrect response was: ' + userGuess);
-
         } else if (userGuess === petArray[0] || userGuess === petArray [2] || userGuess === petArray [3] || userGuess === petArray [5]) {
             userCorrect = true;
             userScore++;
-            userGuessCounter = 0;
-
-            console.log('User\'s correct response was: ' + userGuess);
-
             break;
 
         } else {
-            petMessage = 'Whoops, you didn\'t enter a valid guess! ';
+            userGuess = prompt('Whoops, you didn\'t enter a valid guess! Remember, your choices are: \
+            Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and Cloudbear!').toLowerCase();
+
             nullCounter--;
         }
+
+        console.log(userGuess);
     }
 
     console.log('User\'s score is: ' + userScore);
@@ -218,12 +213,17 @@ function pets() {
     }
 }
 
-pets();
-
 // final message, informing user of score
 
-function score() {
+function scoreDisplay() {
     alert('Alright,' + userName + ', one more thing before you go. It looks like you got ' + userScore + ' questions right in our \
     time together! How cool. Well, it was wonderful to meet you! Goodbye!');
 }
-score();
+
+// calling all functions
+
+userQuestions();
+aboutMe();
+randomNumberGame();
+petGame();
+scoreDisplay();
