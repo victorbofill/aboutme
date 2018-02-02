@@ -21,7 +21,7 @@ function userQuestions() {
 
     const userFaveFood = prompt('What is your favorite thing on their menu?');
     console.log('Users favorite item at ' + userFaveRestaurant + ' is ' + userFaveFood);
-    alert('Man, ' + userFaveFood + ' sure does sound amazing... If I ever visit ' + userHometown
+    alert('Man, I love ' + userFaveFood + '! If I ever visit ' + userHometown
     + ', I will visit ' + userFaveRestaurant + ' and order the ' + userFaveFood + '!');
 }
 
@@ -147,69 +147,78 @@ function randomNumberGame() {
     }
 }
 
-// guess the pet
+// pet game
 
 function petGame() {
+    const petIntro =  'OK, ' + userName + ', one last game! ';
+    const petExplain = 'Can you guess the name of one of the pets I had growing up? You have six tries to guess one! ';
+    const petChoices = 'Your choices are: Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and Cloudbear!';
+    const petIncorrect = 'No, that\'s not one of them. How about another try? ';
+    const petCorrect = 'That\'s right! ';
+    const petInvalid = 'Whoops, you didn\'t enter a valid guess! ';
 
-    const petArray = ['spooky', 'dot', 'rex', 'dirk', 'patches', 'gumbo', 'spot', 'cloudbear'];
-    let userCorrect;
-    userGuessCounter = 5;
+    const myPets = ['spooky', 'rex', 'dirk', 'gumbo'];
+    const notMyPets = ['dot', 'patches', 'spot', 'cloudbear'];
+
+    // interaction begins
+    let userGuess = prompt(petIntro + petExplain + petChoices).toLowerCase();
+
+    let guessCounter = 5;
+    let userCorrect = false;
     nullCounter = 4;
 
-    let petMessage = 'OK, ' + userName + ', one last game! Do you think you can guess the name of one of the pets I had growing up? \
-    You have six tries to get one right answer! Your choices are: Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and \
-    Cloudbear. Ready,go!';
+    while (guessCounter != 0 && nullCounter != 0) {
+        if (myPets.includes(userGuess) === true) {
 
-    userGuess = prompt(petMessage).toLowerCase();
-
-    console.log('User\'s pet guess was: ' + userGuess);
-
-    while (userGuessCounter != 0 && nullCounter != 0) {
-        if (userGuess === petArray[1] || userGuess === petArray[4] || userGuess === petArray[6] || userGuess === petArray[7]) {
-            userGuess = prompt('No, that\'s not one of them. How about another try? Your choices are: \
-            Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and Cloudbear!').toLowerCase();
-
-            userGuessCounter--;
-
-        } else if (userGuess === petArray[0] || userGuess === petArray [2] || userGuess === petArray [3] || userGuess === petArray [5]) {
-            userCorrect = true;
             userScore++;
+            userCorrect = true;
             break;
 
-        } else {
-            userGuess = prompt('Whoops, you didn\'t enter a valid guess! Remember, your choices are: \
-            Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and Cloudbear!').toLowerCase();
+        } else if (notMyPets.includes(userGuess) === true ) {
 
+            userGuess = prompt(petIncorrect + petChoices).toLowerCase();
+            guessCounter--;
+
+        } else {
+
+            userGuess = prompt(petInvalid + petChoices).toLowerCase();
             nullCounter--;
         }
+    }
 
-        console.log(userGuess);
+    if (guessCounter === 0) {
+        alert('Uh oh, you\'ve run out of guesses! Oh well, I won\'t hold it against you.');
     }
 
     console.log('User\'s score is: ' + userScore);
 
-    if (userCorrect === false) {
-        alert('Uh oh, you\'ve run out of guesses! Oh well, I won\'t hold it against you.');
+    let petDetailsMsg;
+
+    const petDetails = [
+        'Spooky was my very first dog.',
+        'Rex was a delightful half-breed pug I had growing up.',
+        'Dirk was a hedgehod I had growing up.',
+        'Gumbo was a rooster that I had growing up.'
+    ];
+
+    if (userGuess === 'spooky') {
+        petDetailsMsg = petDetails[0];
     }
 
-    if (userGuess === petArray[0]) {
-        petMessage = 'Spooky was my very first dog.';
+    if (userGuess === 'rex') {
+        petDetailsMsg = petDetails[1];
     }
 
-    if (userGuess === petArray[2]) {
-        petMessage = 'Rex was a delightful half-breed pug I had growing up.';
+    if (userGuess === 'dirk') {
+        petDetailsMsg = petDetails[2];
     }
 
-    if (userGuess === petArray[3]) {
-        petMessage = 'Dirk was a hedgehod I had growing up.';
-    }
-
-    if (userGuess === petArray[5]) {
-        petMessage = 'Gumbo was a rooster that I had growing up.';
+    if (userGuess === 'gumbo') {
+        petDetailsMsg = petDetails[3];
     }
 
     if (userCorrect === true) {
-        alert('That\'s right! ' + petMessage);
+        alert(petCorrect + petDetailsMsg);
     }
 }
 

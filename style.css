@@ -1,11 +1,10 @@
 body {
-    background-color: moccasin;
     font-family: monospace;
 }
 
-main {
-    padding: 0 2em;
-    max-width: 45em;
+section.paper {
+    margin: 0 auto;
+    max-width: 50em;
 }
 
 h1 {
