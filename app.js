@@ -1,64 +1,88 @@
 'use strict';
 
-// first question about user: name
-const userName = prompt('What is your name?');
-console.log('Users name is ' + userName);
-alert(userName + ', huh? What a sweet name!');
+// INDEX
+// Use 'find' to jump to section
+// universal variables
+// about the user 
+// about me
+// random number game
+// pet game
+// final message
+// repeat prompts
+// calling all functions
 
-// second question about user: city
-const userHometown = prompt('What city do you live in?');
-console.log('User lives in ' + userHometown);
-alert('Cool, ' + userName + '! I have actually never been to ' + userHometown
-      + ' myself, but I have heard that it is great!');
 
-// third question about user: restaurant
-const userFaveRestaurant = prompt('What is your favorite restaurant there?');
-console.log('Users favorite restaurant in ' + userHometown + ' is ' + userFaveRestaurant);
-alert('Hey, a friend of mine from ' + userHometown + ' loves ' + userFaveRestaurant + '!');
+// universal variables
 
-// fourth question about user: food
-const userFaveFood = prompt('What is your favorite thing on their menu?');
-console.log('Users favorite item at ' + userFaveRestaurant + ' is ' + userFaveFood);
-alert('Man, ' + userFaveFood + ' sure does sound amazing... If I ever visit ' + userHometown
-+ ', I will visit ' + userFaveRestaurant + ' and order the ' + userFaveFood + '!');
-
-// about me questions
 let userScore = 0;
 
-const questions = ['Now you will learn a little bit about me! First off, is it true that I have three siblings?',
+// about the user
+
+function userQuestions() {
+    let nameResponse = 'It\'s nice to meet you, ' + userName + '!';
+
+    userName = prompt('What is your name?');
+    console.log('Users name is ' + userName);
+
+    if (userName === undefined || userName === null) {
+            userName = 'Stranger';
+            nameResponse = 'Prefer to remain anonymous, huh? That\'s fine! I\'ll just call you "Stranger."';
+        }
+
+    alert(nameResponse);
+
+    const userHometown = prompt('What city do you live in?');
+    console.log('User lives in ' + userHometown);
+    alert('Cool, ' + userName + '! I have actually never been to ' + userHometown
+          + ' myself, but I have heard that it is great!');
+
+    const userFaveRestaurant = prompt('What is your favorite restaurant there?');
+    console.log('Users favorite restaurant in ' + userHometown + ' is ' + userFaveRestaurant);
+    alert('Hey, a friend of mine from ' + userHometown + ' loves ' + userFaveRestaurant + '!');
+
+    const userFaveFood = prompt('What is your favorite thing on their menu?');
+    console.log('Users favorite item at ' + userFaveRestaurant + ' is ' + userFaveFood);
+    alert('Man, I love ' + userFaveFood + '! If I ever visit ' + userHometown
+    + ', I will visit ' + userFaveRestaurant + ' and order the ' + userFaveFood + '!');
+}
+
+// about me
+
+function aboutMe() {
+
+    const aboutMeQuestions = ['Now you will learn a little bit about me! First off, is it true that I have three siblings?',
     'How about ice cream? Do you think I like ice cream?',
     'Ok, that last question was a bit of a trick. No more tricks this time! What do you think? Do I looove to party?',
     'What do you think? Have I ever traveled outside of the United States?',
     'Last question! Do I love to code?'
-];
+    ];
 
-const correctOne = ['n', 'y', 'n', 'y', 'y'];
-const correctTwo = ['no', 'yes', 'no', 'yes', 'yes'];
-const incorrectOne = ['yes', 'no', 'yes', 'no', 'no'];
-const incorrectTwo = ['y', 'n', 'y', 'n', 'n'];
+    const aboutMecorrectOne = ['n', 'y', 'n', 'y', 'y'];
+    const aboutMeCorrectTwo = ['no', 'yes', 'no', 'yes', 'yes'];
+    const aboutMeIncorrectOne = ['yes', 'no', 'yes', 'no', 'no'];
+    const aboutMeIncorrectTwo = ['y', 'n', 'y', 'n', 'n'];
 
-const affirm = ['You are correct! ',
-    'Heh, you\'re on the right track, but you\'re not quite right... Actually, ',
-    'Yeah, you\'re right about that. ',
-    'That\'s right! But just once. ',
-    'Of course I do! '
-];
+    const aboutMeAffirm = ['You are correct! ',
+        'Heh, you\'re on the right track, but you\'re not quite right... Actually, ',
+        'Yeah, you\'re right about that. ',
+        'That\'s right! But just once. ',
+        'Of course I do! '
+    ];
 
-const neggy = ['Not quite! ',
-    'Heh, you\'re right. I don\'t like ice cream. ',
-    'I actually don\'t like to party. ',
-    'Actually, I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ',
-    'Oh come on, you know better than that! ',
-];
+    const aboutMeNeggy = ['Not quite! ',
+        'Heh, you\'re right. I don\'t like ice cream. ',
+        'I actually don\'t like to party. ',
+        'Actually, I\'m very fortunate to be abe to say that I\'ve traveled outside of the country before. ',
+        'Oh come on, you know better than that! ',
+    ];
 
-const message = ['I actually have four siblings!',
-    'I looooooove ice cream!',
-    'My party years are behind me at this point.',
-    'I took a trip to Oman several years ago.',
-    'Coding is wonderful!'
-];
+    const aboutMeMessage = ['I actually have four siblings!',
+        'I looooooove ice cream!',
+        'My party years are behind me at this point.',
+        'I took a trip to Oman several years ago.',
+        'Coding is wonderful!'
+    ];
 
-function aboutMe() {
     for ( let x = 0 ; x < 5 ; x++ ){
         let msg;
 
@@ -79,23 +103,22 @@ function aboutMe() {
     }
 }
 
-aboutMe();
+// random number game
 
-// guessing game: coins
-let userGuess;
-let userGuessCounter = 3;
-let nullCounter = 4; // allows users to escape out of prompts
+function randomNumberGame() {
 
-function coins() {
-    alert('Alright, ' + userName + ', now we\'re going to play a little game! You try to guess a number, and I will \
-    tell you how close to the actual number you are. Now, you only have four guesses to get this right, so be careful! \
-    Are you ready?');
-    
-    userGuess = prompt('Once while playing a video game with my friends, I collected a whole bunch of powerful coins. \
-    Unfortunately I abandoned my friends and was killed by the enemy team, which sacrificed all of my coins to the \
-    opposition. How many coins do you think I lost to the enemy team?');
-    
-    while (userGuess != 17 && userGuessCounter != 0 && nullCounter != 0) {
+    let userGuess;
+    let userGuessCounter = 3;
+    let nullCounter = 4; // allows users to escape out of prompts
+
+    const hiddenNumber = Math.floor(Math.random() * 100);
+    console.log('The hidden number is: ' + hiddenNumber);
+
+    userGuess = prompt('Alright, ' + userName + ', now we\'re going to play a little game! I\'m going to pick a random \
+    number between 1 and 100, and you try to guess the number. There\'s a catch, though: you only have four guesses! What\'s your first guess?');
+
+    while (parseInt(userGuess) !== hiddenNumber && userGuessCounter !== 0 && nullCounter !== 0) {
+
         if (userGuess === null || userGuess === '') {
             userGuess = prompt ('Whoops, you didn\'t make a guess! Try again.');
             console.log('User entered invalid response: ' + userGuess);
@@ -147,10 +170,7 @@ function pets() {
 
     userGuessCounter = 6;
     let userCorrect = false;
-    nullCounter = 6;
-    let petMessage = 'OK,' + userName + ', one last game! Do you think you can guess the name ofone of the pets I had growing up? \
-    You have six tries to get one right answer! Your choices are: Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and \
-    Cloudbear. Ready,go!';
+    let nullCounter = 4;
 
     console.log('User\'s pet guess was: ' + userGuess);
 
@@ -217,4 +237,24 @@ function score() {
     alert('Alright,' + userName + ', one more thing before you go. It looks like you got ' + userScore + ' questions right in our \
     time together! How cool. Well, it was wonderful to meet you! Goodbye!');
 }
-score();
+
+// calling all functions
+
+userQuestions();
+aboutMe();
+randomNumberGame();
+petGame();
+scoreDisplay();
+
+// repeat prompts
+
+function repeatInteraction() {
+    alert('Welcome back, ' + userName + '!');
+
+    userScore = 0;
+
+    aboutMe();
+    randomNumberGame();
+    petGame();
+    scoreDisplay();
+}

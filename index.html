@@ -7,53 +7,69 @@
 
   <body>
     <main>
-      <section>
+      <header>
         <h1>About Me</h1>
         
+        <ul>
+          <li><a href="#bio">Bio</a></li>
+          <li><a href="#education">Education</a></li>
+          <li><a href="#jobexperience">Job Experience</a></li>
+          <li><a href="#goals">Goals</a></li>
+          <li><a href="#topten">Top 10 Favorite Stories</a></li>
+        </ul>
+
+      </header>
+
+      <section id="bio">
         <h2>Bio</h2>
 
         <p>
-          My avatar spawned in Santa Barabra, Southern California. I had min-maxed my stats to be very intelligent, both
-          mentally and emotionally, but balanced out by asthma, which was extremely physically limiting, and depression, 
-          which was emotionally and mentally limiting. Fortunately, my initial party was made up for two amazing parents 
-          and four siblings.
+          I started out in the newbie zone in Santa Barbara, California. I had min-maxed my stats to be very intelligent, both
+          mentally and emotionally, but balanced out with asthma, which was extremely physically limiting, and depression, 
+          which was emotionally and mentally limiting. Fortunately, my randomly generated party was made up of two amazing parents 
+          and four incredible siblings.
         </p>
         
         <p>
-          Before I had finished the newbie zone, my parents directed the party up to the Oregon coast to a small town called 
-          Tillamook. I finished up the newbie zone by the time I was 18, and decided to keep leveling in college. College didn't 
-          go so well, so I went back to the newbie zone to figure something else out. I did this several times. The problem was 
-          that I was trying to level up my emotional skills in relationships, but was told by everyone else to focus on my 
-          mental skills in classes.
+          Before I had finished the newbie zone, my parents relocated the party up to the Oregon coast to a small town called 
+          Tillamook. I finished up the newbie zone right around the age of 18, and decided level in college next. College didn't 
+          go so well. The problem was that I was more focused on leveling my emotional skills in relationsps than I was in improving
+          my mental skills in classes. That the college leveling zone was so focused on mental skills made this nearly impossible.
+          I went back to the newbie zone to figure something else out. I repeated this mistake several times.
         </p>
 
         <p>
           It ended up taking me several years of on-and-off courses to gradute college, but I finally did it. I got a B.S. 
           in philosophy, which had thoroughly taught me that reason and argument are equally as effective and valid as 
-          phisicaly forcing someone to do soething; in general both are simply matters of convincing the other person that 
-          it's just not worth arguing/fighting with you. Or, in extreme cases, removing their option to do so at all.
+          physically forcing someone to do something; in general, both are simply matters of convincing the other person that 
+          the argument or fight isn't worth the trouble. This doesn't determine who is right; only who is more skilled
+          at argument/fighting.
         </p>
 
         <p>
           I continued leveling my emotional skills as much as possible. There were many adventures and failures, some worthy 
-          of telling as stories, some less so. It wasn't until I started to notice that no one else 
-          was leveling alongside me that I realized that I had very nearly reached max level. At least, I was no longer able 
-          to easily find the zones that were high enough level for me to continue to advance. It was also around that time 
-          that I discovered that emotional skills, no matter how high level, do not make a lot of money.
+          of becoming stories, some less so. It wasn't until I started to notice that no one else was leveling alongside me
+          that I realized that I had very nearly reached the maximum level my current environment had to offer. It was also
+          around that time that I discovered that emotional skills, no matter how high level, do not make a lot of money.
+          At least, not without the appropriate corrosponding mental skills.
         </p>
 
         <p>
           That brings us to now. Now, I'm grinding my mental skills in web engineering in order to reach a place of financial 
           stability, at which point I can more easily access higher level content.
         </p>
+      </section>
 
+      <section id="education">
         <h2>Education</h2>
         <ul>
           <li>B.S. in Philosophy from the University of Oregon</li>
           <li>Certification as a Light Worker, which includes several modalities of energy healing</li>
           <li>Certification as a Level Three Reiki practitioner</li>
         </ul>
+      </section>
 
+      <section id="jobexperience">
         <h2>Job Experience</h2>
         <dl>
           <dt>Coding</dt>
@@ -61,18 +77,21 @@
               I know rudimentary HTML and CSS, and used those skills to work for a professor shortly after I graduated
               college. I'm currently enrolled in an intensive coding bootcamp at Alchemy Code Lab.
             </dd>
-          <dt>Executive Assisstant</dt>
+
+          <dt>Executive Assistant</dt>
             <dd>
               I've worked as an executive and/or administrative assistant both professionaly and as a volunteer with 
               multiple companies. Professionally I worked witht he Conference of Delegates of CA Bar Associations and 
               the Secondary Special Education and Transition team at the University of Oregon. I've also volunteered with 
               Tillamook County Outdoor School and JamBallah Northwest Bellydance Festival numerous times each.
             </dd>
+
           <dt>Customer Service</dt>
             <dd>I worked with Simple Finance for 2.5 years as a customer service agent. I eventually reached 
               a lower management position. I also worked at the computer lab help desk at the Knight Library while 
               I was attending the U of O.
             </dd>
+            
           <dt>Energy Healing</dt>
             <dd>
               My biggest projects with energy healing have involved the Gender Wars, for which I have acted as front-line 
@@ -82,18 +101,22 @@
               soft-channel of Ra to teach/learn.
             </dd>
         </dl>
+      </section>
 
+      <section id="goals">
         <h2>Goals</h2>
         <ul>
           <li>Serve humanity by offering unconditional love</li>
-          <li>Do all I can, at all times, in all ways, the ensure that those around me are safe</li>
+          <li>Do all that I can, at all times, to ensure that those around me are safe</li>
           <li>Become a badass web developer</li>
-          <li>Have a blast being the best uncle I can be</li>
-          <li>Finish revising my novel, Mork</li>
+          <li>Have a blast being the best uncle, brother, and friend I can be</li>
+          <li>Finish revising my novel, <cite>Mork</cite></li>
           <li>Refine and make public my RPG, Quan</li>
           <li>Be the best partner I can be to my girlfriend</li>
         </ul>
+      </section>
 
+      <section id="topten">
         <h2>Top 10 Favorite Stories</h2>
         <ol reversed>
           <li>Mass Effect</li>
@@ -107,6 +130,10 @@
           <li>Princess Mononoke</li>
           <li>The Last Airbender</li>
         </ol>
+      </section>
+
+      <section>
+        <button onclick = "repeatInteraction()">Repeat prompts</button>
       </section>
     </main>
 
