@@ -15,6 +15,7 @@
 // universal variables
 
 let userScore = 0;
+let userName = '';
 
 // about the user
 
@@ -86,19 +87,18 @@ function aboutMe() {
     for ( let x = 0 ; x < 5 ; x++ ){
         let msg;
 
-        const answer = prompt(questions[x]).toLowerCase();
+        const answer = prompt(aboutMeQuestions[x]).toLowerCase();
 
-        if (answer === correctOne[x] || answer === correctTwo[x]){
-            msg = affirm[x];
+        if (answer === aboutMecorrectOne[x] || answer === aboutMeCorrectTwo[x]){
+            msg = aboutMeAffirm[x];
             userScore++;
-        } else if (answer === incorrectOne[x] || answer === incorrectTwo[x]) {
-            msg = neggy[x];
+        } else if (answer === aboutMeIncorrectOne[x] || answer === aboutMeIncorrectTwo[x]) {
+            msg = aboutMeNeggy[x];
         } else {
             msg = 'Oops, I didn\'t understand you. But in case you\'re curious: ';
-            console.log('User entered invalid  response.');
-        } 
+        }
 
-        alert(msg + message[x]);
+        alert(msg + aboutMeMessage[x]);
         console.log('User\'s score is: ' + userScore);
     }
 }
@@ -120,120 +120,138 @@ function randomNumberGame() {
     while (parseInt(userGuess) !== hiddenNumber && userGuessCounter !== 0 && nullCounter !== 0) {
 
         if (userGuess === null || userGuess === '') {
-            userGuess = prompt ('Whoops, you didn\'t make a guess! Try again.');
-            console.log('User entered invalid response: ' + userGuess);
+
+            userGuess = prompt ('Whoops, you didn\'t make a valid guess! Try again. \
+            Don\'t worry, that won\'t count as one of your guesses!');
+
             nullCounter--;
-            console.log(nullCounter);
-        } else if (userGuess === '18') {
+            console.log('Null entries of 4: ' + nullCounter);
+
+        } else if (parseInt(userGuess) === (hiddenNumber + 1)) {
+
             userGuess = prompt('You\'re so close, but just a little too high! I bet you can get it with one more guess...');
             userGuessCounter--;
-            console.log('userGuess is : ' + userGuess);
-        } else if (userGuess === '16') {
+
+        } else if (parseInt(userGuess) === (hiddenNumber - 1)) {
+
             userGuess = prompt('You\'re so close, but just a little too low! I bet you can get it with one more guess...');
             userGuessCounter--;
-            console.log('userGuess is : ' + userGuess);
-        } else if (userGuess > 18) {
-            userGuess = prompt('No, it wasn\'t quite that high... ');
-            userGuessCounter--;
-            console.log('userGuess is : ' + userGuess);
-        } else if (userGuess < 16) {
-            userGuess = prompt('Oh, no, it was even more than that...');
-            userGuessCounter--;
-            console.log('userGuess is : ' + userGuess);
-        }
-    }
-    
-    if (userGuess === '17') {
-        userScore++;
-    }
-    
-    console.log('User\s score is: ' + userScore);
-    
-    let coinMessage = 'You\'re right! ';
-    
-    if (userGuess != 17 ) {
-        coinMessage = 'You didn\'t quite find the right number. Do you want to know what it was? It was seventeen! ';
-    }
-    
-    alert(coinMessage + 'I handed seventeen coins to the enemy team, and ended up losing the team for myself and my friends. \
-    They will never let me live it down.');
 
+        } else if (parseInt(userGuess) > (hiddenNumber + 1) && (parseInt(userGuess) < + (hiddenNumber + 10))) {
+
+            userGuess = prompt('You\'re within 10! Just a little lower!');
+            userGuessCounter--;
+
+        } else if (parseInt(userGuess) < (hiddenNumber - 1) && (parseInt(userGuess) > (hiddenNumber - 10))) {
+
+            userGuess = prompt('You\'re within 10! Just a little higher!');
+            userGuessCounter--;
+
+        } else if (parseInt(userGuess) >= (hiddenNumber + 10)) {
+            userGuess = prompt('Too high! Bring it down a bit.');
+            userGuessCounter--;
+
+        } else if (parseInt(userGuess) <= (hiddenNumber - 10)) {
+            userGuess = prompt('Too low! Bring it up.');
+            userGuessCounter--;
+
+        }
+
+        console.log('userGuess is : ' + userGuess);
+
+    }
+
+    if (parseInt(userGuess) === hiddenNumber) {
+        userScore++;
+        console.log('User\s score is: ' + userScore);
+        alert('You got it!!');
+    }
+
+    if (userGuess != hiddenNumber ) {
+        alert('You didn\'t quite find the right number. Do you want to know what it was? It was ' + hiddenNumber);
+    }
 }
 
-coins();
+// pet game
 
-// guess the pet
+function petGame() {
+    const petIntro =  'OK, ' + userName + ', one last game! ';
+    const petExplain = 'Can you guess the name of one of the pets I had growing up? You have six tries to guess one! ';
+    const petChoices = 'Your choices are: Spooky, Dot, Rex, Dirk, Patches, Gumbo, Spot, and Cloudbear!';
+    const petIncorrect = 'No, that\'s not one of them. How about another try? ';
+    const petCorrect = 'That\'s right! ';
+    const petInvalid = 'Whoops, you didn\'t enter a valid guess! ';
 
-function pets() {
+    const myPets = ['spooky', 'rex', 'dirk', 'gumbo'];
+    const notMyPets = ['dot', 'patches', 'spot', 'cloudbear'];
 
-    const petArray = ['spooky', 'dot', 'rex', 'dirk', 'patches', 'gumbo', 'spot', 'cloudbear'];
+    // interaction begins
+    let userGuess = prompt(petIntro + petExplain + petChoices).toLowerCase();
 
-    userGuessCounter = 6;
+    let guessCounter = 5;
     let userCorrect = false;
     let nullCounter = 4;
 
     console.log('User\'s pet guess was: ' + userGuess);
 
-    while (userGuessCounter != 0 && nullCounter != 0) {
-        userGuess = prompt(petMessage);
+    while (guessCounter != 0 && nullCounter != 0) {
+        if (myPets.includes(userGuess) === true) {
 
-        if (userGuess === petArray[1] || userGuess === petArray[4] || userGuess === petArray[6] ||
-        userGuess === petArray[7]) {
-            userGuess = prompt(petMessage + 'Again, your choices are: \
-            Spooky, Dot, Rex, Dirk,Patches, Gumbo, Spot, and Cloudbear!').toLowerCase();
-
-            userGuessCounter--;
-
-            console.log('User\'s incorrect response was: ' + userGuess);
-
-        } else if (userGuess === petArray[0] || userGuess === petArray [2] || userGuess === petArray [3] || userGuess === petArray [5]) {
-            userCorrect = true;
             userScore++;
-            userGuessCounter = 0;
-
-            console.log('User\'s correct response was: ' + userGuess);
-
+            userCorrect = true;
             break;
 
+        } else if (notMyPets.includes(userGuess) === true ) {
+
+            userGuess = prompt(petIncorrect + petChoices).toLowerCase();
+            guessCounter--;
+
         } else {
-            petMessage = 'Whoops, you didn\'t enter a valid guess! ';
+
+            userGuess = prompt(petInvalid + petChoices).toLowerCase();
             nullCounter--;
         }
     }
 
-    console.log('User\'s score is: ' + userScore);
-
-    if (userCorrect === false) {
+    if (guessCounter === 0) {
         alert('Uh oh, you\'ve run out of guesses! Oh well, I won\'t hold it against you.');
     }
 
-    if (userGuess === petArray[0]) {
-        petMessage = 'Spooky was my very first dog.';
+    console.log('User\'s score is: ' + userScore);
+
+    let petDetailsMsg;
+
+    const petDetails = [
+        'Spooky was my very first dog.',
+        'Rex was a delightful half-breed pug I had growing up.',
+        'Dirk was a hedgehod I had growing up.',
+        'Gumbo was a rooster that I had growing up.'
+    ];
+
+    if (userGuess === 'spooky') {
+        petDetailsMsg = petDetails[0];
     }
 
-    if (userGuess === petArray[2]) {
-        petMessage = 'Rex was a delightful half-breed pug I had growing up.';
+    if (userGuess === 'rex') {
+        petDetailsMsg = petDetails[1];
     }
 
-    if (userGuess === petArray[3]) {
-        petMessage = 'Dirk was a hedgehod I had growing up.';
+    if (userGuess === 'dirk') {
+        petDetailsMsg = petDetails[2];
     }
 
-    if (userGuess === petArray[5]) {
-        petMessage = 'Gumbo was a rooster that I had growing up.';
+    if (userGuess === 'gumbo') {
+        petDetailsMsg = petDetails[3];
     }
 
     if (userCorrect === true) {
-        alert('That\'s right! ' + petMessage);
+        alert(petCorrect + petDetailsMsg);
     }
 }
 
-pets();
-
-
 // final message, informing user of score
 
-function score() {
+function scoreDisplay() {
     alert('Alright,' + userName + ', one more thing before you go. It looks like you got ' + userScore + ' questions right in our \
     time together! How cool. Well, it was wonderful to meet you! Goodbye!');
 }
