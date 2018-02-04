@@ -25,7 +25,7 @@ function userQuestions() {
     userName = prompt('What is your name?');
     console.log('Users name is ' + userName);
 
-    if (userName === undefined || userName === null) {
+    if (userName === undefined || userName === null || userName === '') {
             userName = 'Stranger';
             nameResponse = 'Prefer to remain anonymous, huh? That\'s fine! I\'ll just call you "Stranger."';
         }
@@ -252,7 +252,7 @@ function petGame() {
 // final message, informing user of score
 
 function scoreDisplay() {
-    alert('Alright,' + userName + ', one more thing before you go. It looks like you got ' + userScore + ' questions right in our \
+    alert('Alright, ' + userName + ', one more thing before you go. It looks like you got ' + userScore + ' questions right in our \
     time together! How cool. Well, it was wonderful to meet you! Goodbye!');
 }
 
