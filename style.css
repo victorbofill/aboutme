@@ -4,8 +4,9 @@ body {
 }
 
 header {
-    position: sticky;
+    position: fixed;
     top: 0px;
+    width: 100%;
     background:hsl(29, 37%, 88%);
 }
 
@@ -35,8 +36,8 @@ header ul li {
 }
 
 section {
-    margin: 0 auto .1em auto;
-    padding: 0 1em;
+    margin: 8px auto .1em auto;
+    padding: 70px 0 0 0;
     max-width: 900px;
 }
 

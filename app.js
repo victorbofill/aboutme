@@ -1,17 +1,5 @@
 'use strict';
 
-// INDEX
-// Use 'find' to jump to section
-// universal variables
-// about the user 
-// about me
-// random number game
-// pet game
-// final message
-// repeat prompts
-// calling all functions
-
-
 // universal variables
 
 let userScore = 0;
@@ -20,15 +8,18 @@ let userName = '';
 // about the user
 
 function userQuestions() {
-    let nameResponse = 'It\'s nice to meet you, ' + userName + '!';
-
     userName = prompt('What is your name?');
-    console.log('Users name is ' + userName);
 
-    if (userName === undefined || userName === null || userName === '') {
-            userName = 'Stranger';
-            nameResponse = 'Prefer to remain anonymous, huh? That\'s fine! I\'ll just call you "Stranger."';
-        }
+    let nameResponse;
+
+    nameResponse = 'It\'s nice to meet you, ' + userName + '!';
+
+    if (userName === null || userName === '') {
+        userName = 'Stranger';
+        nameResponse = 'Prefer to remain anonymous, huh? That\'s fine! I\'ll just call you "Stranger."';
+    }
+
+    console.log('Users name is ' + userName);
 
     alert(nameResponse);
 
@@ -52,10 +43,10 @@ function userQuestions() {
 function aboutMe() {
 
     const aboutMeQuestions = ['Now you will learn a little bit about me! First off, is it true that I have three siblings?',
-    'How about ice cream? Do you think I like ice cream?',
-    'Ok, that last question was a bit of a trick. No more tricks this time! What do you think? Do I looove to party?',
-    'What do you think? Have I ever traveled outside of the United States?',
-    'Last question! Do I love to code?'
+        'How about ice cream? Do you think I like ice cream?',
+        'Ok, that last question was a bit of a trick. No more tricks this time! What do you think? Do I looove to party?',
+        'What do you think? Have I ever traveled outside of the United States?',
+        'Last question! Do I love to code?'
     ];
 
     const aboutMecorrectOne = ['n', 'y', 'n', 'y', 'y'];
